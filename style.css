@@ -27,3 +27,17 @@ body{
 #display{
     margin-top: 20px;
 }
+#boxes{
+    background-color: rgb(171, 220, 119);
+    border: 1px solid white;
+}
+#boxes:hover{
+    background-color: rgb(32, 218, 32);
+}
+#restart{
+padding: 10px;
+border-radius: 10px;
+box-shadow: 0px 3px 5px rgb(25, 46, 25) ;
+border: transparent;
+background-color: rgb(135, 244, 135);
+}

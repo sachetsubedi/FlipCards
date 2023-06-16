@@ -4,10 +4,6 @@ let numberArrey = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var boxDisplaing = 0;
 var completedBox=0;
 
-
-boxes.forEach((box) => {
-  box.style.backgroundColor = "red";
-});
 function suffle(array) {
   for (var i = 0; i < array.length; i++) {
     ranInt = Math.floor(Math.random() * 9);
@@ -103,7 +99,11 @@ if(completedBox==boxes.length)
   {
     var display=document.getElementById('display');
     display.innerText="You won";
+    
   }
 }
-
+var restartBtn=document.getElementById('restart');
+restartBtn.addEventListener('click',()=>{
+    location.reload();
+})
 
