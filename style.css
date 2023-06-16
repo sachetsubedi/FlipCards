@@ -8,6 +8,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-direction: column;
 }
 #main{
     display:grid;
@@ -22,4 +23,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+#display{
+    margin-top: 20px;
 }
