@@ -71,7 +71,7 @@ boxes.forEach((box) => {
 function check(array) {
   if (array[0] == array[1]) {
     boxes.forEach((box) => {
-      if (box.value == array[0]) {
+      if (box.value == array[0]) { 
         completedBox++;
         
         box.innerHTML = "X";
