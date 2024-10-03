@@ -2,6 +2,7 @@ const selectedCards = {
   firstCard: null,
   secondCard: null,
   count: 0,
+  matchCount: 0,
 };
 
 let lock = false;
@@ -9,6 +10,7 @@ let lock = false;
 document.querySelectorAll(".cards").forEach((card) => {
   card.addEventListener("click", () => {
     if (lock) return;
+    if (card.getAttribute("data-flipped")) return;
     flipCard(card);
 
     if (selectedCards.firstCard === null) {
@@ -30,7 +32,9 @@ const checkMatch = () => {
     selectedCards.firstCard.getAttribute("data-value") ===
     selectedCards.secondCard.getAttribute("data-value")
   ) {
-    console.log("match");
+    selectedCards.matchCount++;
+    selectedCards.firstCard.setAttribute("data-flipped", true);
+    selectedCards.secondCard.setAttribute("data-flipped", true);
     selectedCards.firstCard = null;
     selectedCards.secondCard = null;
     lock = false;
@@ -41,7 +45,7 @@ const checkMatch = () => {
       selectedCards.firstCard = null;
       selectedCards.secondCard = null;
       lock = false;
-    }, 1000);
+    }, 500);
   }
 };
 
