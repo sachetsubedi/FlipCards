@@ -39,6 +39,10 @@ const checkMatch = () => {
     selectedCards.firstCard = null;
     selectedCards.secondCard = null;
     lock = false;
+
+    if (selectedCards.matchCount == 8) {
+      document.getElementById("youWon").classList.remove("hidden");
+    }
   } else {
     setTimeout(() => {
       selectedCards.firstCard.removeAttribute("data-flipped");
@@ -84,3 +88,8 @@ const start = () => {
   }
 };
 start();
+
+document.getElementById("playAgain").addEventListener("click", () => {
+  document.getElementById("youWon").classList.add("hidden");
+  start();
+});
