@@ -12,6 +12,7 @@ document.querySelectorAll(".cards").forEach((card) => {
     if (lock) return;
     if (card.getAttribute("data-flipped")) return;
     flipCard(card);
+    card.setAttribute("data-flipped", true);
 
     if (selectedCards.firstCard === null) {
       selectedCards.firstCard = card;
@@ -40,6 +41,8 @@ const checkMatch = () => {
     lock = false;
   } else {
     setTimeout(() => {
+      selectedCards.firstCard.removeAttribute("data-flipped");
+      selectedCards.secondCard.removeAttribute("data-flipped");
       unflipCard(selectedCards.firstCard);
       unflipCard(selectedCards.secondCard);
       selectedCards.firstCard = null;
@@ -60,6 +63,17 @@ const unflipCard = (element) => {
 };
 
 const start = () => {
+  selectedCards.firstCard = null;
+  selectedCards.secondCard = null;
+  selectedCards.count = 0;
+  selectedCards.matchCount = 0;
+
+  for (let i = 1; i <= 16; i++) {
+    const card = document.getElementById(`card${i}`);
+    card.removeAttribute("data-flipped");
+    unflipCard(card);
+  }
+
   const values = generateValues();
 
   // Assign the values to the cards
