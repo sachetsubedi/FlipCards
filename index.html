@@ -1,38 +1,32 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Flip Cards</title>
-</head>
-<body>
-    <p style="color: black; background-color: rgb(132, 225, 132); border-radius: 20px; padding: 10px; text-align: center;">Click to revel the card. <br>Only two cards can be seen at a time. <br> remember the cards to complete the game.</p>
-    <div id="main">
-        <div id="boxes" data-clicked="false" style="border-radius: 25px 0px 0px 0px ;"></div>
-        <div id="boxes" data-clicked="false"></div>
-        <div id="boxes" data-clicked="false" style="border-radius: 0px 25px 0px 0px ;"></div>
-        <div id="boxes" data-clicked="false"></div>
-        <div id="boxes" data-clicked="false"></div>
-        <div id="boxes" data-clicked="false"></div> 
-        <div id="boxes" data-clicked="false"></div>
-        <div id="boxes" data-clicked="false"></div>
-        <div id="boxes" data-clicked="false"></div>
-        <div id="boxes" data-clicked="false"></div>
-        <div id="boxes" data-clicked="false"></div>
-        <div id="boxes" data-clicked="false"></div>
-        <div id="boxes" data-clicked="false"></div>
-        <div id="boxes" data-clicked="false"></div>
-        <div id="boxes" data-clicked="false"></div>
-        <div id="boxes" data-clicked="false" style="border-radius: 0px 0px 0px 25px ;"></div>
-        <div id="boxes" data-clicked="false"></div>
-        <div id="boxes" data-clicked="false" style="border-radius: 0px 0px 25px 0px ;"></div>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flip Cards | Sachet Subedi</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="h-screen flex borde justify-center items-center">
+    <div class="grid grid-cols-4 gap-x-1 gap-y-1">
+      <div class="cards" id="card1"></div>
+      <div class="cards" id="card2"></div>
+      <div class="cards" id="card3"></div>
+      <div class="cards" id="card4"></div>
+      <div class="cards" id="card5"></div>
+      <div class="cards" id="card6"></div>
+      <div class="cards" id="card7"></div>
+      <div class="cards" id="card8"></div>
+      <div class="cards" id="card9"></div>
+      <div class="cards" id="card10"></div>
+      <div class="cards" id="card11"></div>
+      <div class="cards" id="card12"></div>
+      <div class="cards" id="card13"></div>
+      <div class="cards" id="card14"></div>
+      <div class="cards" id="card15"></div>
+      <div class="cards" id="card16"></div>
     </div>
-    <div id="display" style="font-size: 3em;">
-
-    </div>
-    <button id="restart">Restart</button>
-</body>
-<script src="script.js"></script>
+  </body>
+  <script src="./seeds/funEmoji.seeds.js"></script>
+  <script src="./scripts/generateAvatars.js"></script>
+  <script src="./scripts/script.js"></script>
 </html>
