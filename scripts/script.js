@@ -80,6 +80,8 @@ const start = () => {
 
   const values = generateValues();
 
+  preloadImages(values.map((value) => value.link));
+
   // Assign the values to the cards
   for (let i = 1; i <= 16; i++) {
     const card = document.getElementById(`card${i}`);
