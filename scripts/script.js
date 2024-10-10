@@ -11,12 +11,14 @@ let started = false;
 
 let lock = false;
 
+let timerInterval = null;
+
 const calculateTime = (seconds) => {
   let minutes = Math.floor(seconds / 60);
   let remainingSeconds = seconds % 60;
 
   if (minutes < 10) minutes = `0${minutes}`;
-  if (seconds < 10) remainingSeconds = `0${remainingSeconds}`;
+  if (remainingSeconds < 10) remainingSeconds = `0${remainingSeconds}`;
 
   return `${minutes} : ${remainingSeconds}`;
 };
@@ -26,7 +28,7 @@ document.querySelectorAll(".cards").forEach((card) => {
     // If it is first click, start the timer
     if (!started) {
       started = true;
-      setInterval(() => {
+      timerInterval = setInterval(() => {
         time++;
         document.getElementById("time").innerText = calculateTime(time);
       }, 1000);
@@ -64,6 +66,9 @@ const checkMatch = () => {
     lock = false;
 
     if (selectedCards.matchCount == 8) {
+      clearInterval(timerInterval);
+      started = false;
+      document.getElementById("wonTime").innerHTML = calculateTime(time);
       document.getElementById("youWon").classList.remove("hidden");
     }
   } else {
@@ -94,6 +99,8 @@ const start = () => {
   selectedCards.secondCard = null;
   selectedCards.count = 0;
   selectedCards.matchCount = 0;
+  time = 0;
+  document.getElementById("time").innerText = calculateTime(time);
 
   for (let i = 1; i <= 16; i++) {
     const card = document.getElementById(`card${i}`);
