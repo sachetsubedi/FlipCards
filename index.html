@@ -6,7 +6,15 @@
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="h-screen flex borde justify-center items-center">
+  <body
+    class="h-screen flex borde justify-center items-center bg-slate-600 flex-col gap-5"
+  >
+    <div class="score">
+      <h1 class="text-2xl text-center text-white bg-slate-400 rounded-md p-2">
+        <span id="time">00 : 00</span>
+      </h1>
+    </div>
+
     <div class="grid grid-cols-4 gap-x-1 gap-y-1">
       <div class="cards" id="card1"></div>
       <div class="cards" id="card2"></div>

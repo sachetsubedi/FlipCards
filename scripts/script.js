@@ -5,10 +5,33 @@ const selectedCards = {
   matchCount: 0,
 };
 
+let time = 0;
+
+let started = false;
+
 let lock = false;
+
+const calculateTime = (seconds) => {
+  let minutes = Math.floor(seconds / 60);
+  let remainingSeconds = seconds % 60;
+
+  if (minutes < 10) minutes = `0${minutes}`;
+  if (seconds < 10) remainingSeconds = `0${remainingSeconds}`;
+
+  return `${minutes} : ${remainingSeconds}`;
+};
 
 document.querySelectorAll(".cards").forEach((card) => {
   card.addEventListener("click", () => {
+    // If it is first click, start the timer
+    if (!started) {
+      started = true;
+      setInterval(() => {
+        time++;
+        document.getElementById("time").innerText = calculateTime(time);
+      }, 1000);
+    }
+
     if (lock) return;
     if (card.getAttribute("data-flipped")) return;
     flipCard(card);
